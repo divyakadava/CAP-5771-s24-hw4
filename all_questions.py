@@ -64,13 +64,13 @@ def question7():
     answers["(a)"] = True
     answers["(b)"] = True
     answers["(c)"] = False
-    answers["(d)"] = True
+    answers["(d)"] = False
 
     # explain_string: explanation in english prose
     answers["(a) explain"] = "The gradients of the weights at layer K+1 are computed using the chain rule, which relates these gradients to the gradients at layer k, effectively propagating the error information backward through the network to update the weights accordingly."
     answers["(b) explain"] = "The activations of nodes at the K+1th layer in an ANN are indeed computed using the activations of nodes at the Kth layer. This computation involves applying weights to the activations from the kth layer, adding biases, and then applying a non-linear activation function. This process allows the network to transform the input data layer by layer until the final output is produced."
     answers["(c) explain"] = "The vanishing gradient problem in ANN training refers to the issue where gradients become increasingly smaller as the error is backpropagated through the layers, making it difficult to update the weights in the earlier layers. This problem does not relate to training errors vanishing to zero while test errors remain large; that scenario is more indicative of overfitting."
-    answers["(d) explain"] = "If an ANN model perfectly classifies all training instances at a given iteration, implying zero classification error, the gradients of the loss function with respect to the weights at all layers will indeed be zero. This is because the gradient of the loss function measures the change needed to reduce error, and if there is no error, no change is needed, resulting in zero gradients."
+    answers["(d) explain"] = "If an ANN model perfectly classifies all training instances, the loss function itself may reach a very low value, indicating that the model predictions are very close to the actual outcomes. However, this doesn't guarantee that the gradients of the loss with respect to the weights are zero."
 
     return answers
 
@@ -105,7 +105,7 @@ def question8():
     answers["(d) Row 4"] = "-"
 
     # float between 0 and 1
-    answers["(d) Training error rate"] = 0.25 #doubt
+    answers["(d) Training error rate"] = 0.38 #doubt
 
     return answers
 
@@ -114,11 +114,11 @@ def question9():
     answers = {}
 
     # int
-    answers["(a) K"] = 1
-    answers["(b) K"] = 5
+    answers["(a) K"] = 5#5 doubt
+    answers["(b) K"] = 5#doubt
 
     # explain_string
-    answers["(a) explain"] = "K = 1 might work well because each point would be classified according to its nearest neighbor, and given the clear separation, it's unlikely to misclassify."
+    answers["(a) explain"] = "Choosing K = 1 might overfit and choosing K=50 might cause underfit, so K=5 work well because each point would be classified according to its nearest 5 neighbors, and given the clear separation, it's unlikely to misclassify."
     answers["(b) explain"] = "K = 5 provides a balance by considering more neighbors which can reduce the effect of noise and outliers."
 
     return answers
@@ -130,7 +130,7 @@ def question10():
     # float
     answers["(a) P(A=1|+)"] = 0.6
     answers["(a) P(B=1|+)"] = 0.4
-    answers["(a) P(C=1|+)"] = 0.6
+    answers["(a) P(C=1|+)"] = 0.8
     answers["(a) P(A=1|-)"] = 0.4
     answers["(a) P(B=1|-)"] = 0.4
     answers["(a) P(C=1|-)"] = 0.2
@@ -140,9 +140,9 @@ def question10():
   
     # type: float
     # note: R is the sample (A=1,B=1,C=1)
-    answers["(b) P(+|R)"] = 0.818 #doubt 
-    answers["(b) P(R|+)"] = 0.144
-    answers["(b) P(R|-)"] = 0.032
+    answers["(b) P(+|R)"] = 1.0
+    answers["(b) P(R|+)"] = 0.2
+    answers["(b) P(R|-)"] = 0.0
 
     # string, '+' or '-'
     answers["(b) class label"] = "+"
